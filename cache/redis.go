@@ -45,10 +45,10 @@ func NewRedisCache(host string, password string, defaultExpiration time.Duration
 		},
 	}
 
-	return NewRedisCachePool(pool, defaultExpiration)
+	return NewRedisCacheWithPool(pool, defaultExpiration)
 }
 
-func NewRedisCachePool(pool *redis.Pool, defaultExpiration time.Duration) *RedisStore {
+func NewRedisCacheWithPool(pool *redis.Pool, defaultExpiration time.Duration) *RedisStore {
 	return &RedisStore{pool, defaultExpiration}
 }
 
