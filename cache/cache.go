@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"crypto/sha1"
 	"errors"
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
@@ -175,6 +176,7 @@ func Cached(expire time.Duration) gin.HandlerFunc {
 				}
 			}
 			c.Writer.Write(cache.Data)
+			c.Abort()
 		}
 	}
 }
